@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  #container {
+    text-align: center;
+    margin-top: 100px;
+  }
+
+  #simButton, #naoButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 10px;
+  }
+
+  #naoButton {
+    display: none;
+  }
+
+  #msgDiv {
+    display: none;
+    font-size: 20px;
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+
+<div id="container">
+  <button id="simButton">Sim</button>
+  <button id="naoButton">Não</button>
+  <div id="msgDiv"></div>
+</div>
+
+<script>
+const simButton = document.getElementById("simButton");
+const naoButton = document.getElementById("naoButton");
+const msgDiv = document.getElementById("msgDiv");
+
+simButton.addEventListener("click", () => {
+  msgDiv.innerHTML = "Vamos sair? ❤️";
+  msgDiv.style.display = "block";
+  simButton.style.display = "none";
+  naoButton.style.display = "none";
+});
+
+naoButton.addEventListener("click", () => {
+  naoButton.style.position = "absolute";
+  const maxX = window.innerWidth - naoButton.clientWidth;
+  const maxY = window.innerHeight - naoButton.clientHeight;
+  const randomX = Math.floor(Math.random() * maxX);
+  const randomY = Math.floor(Math.random() * maxY);
+  naoButton.style.left = `${randomX}px`;
+  naoButton.style.top = `${randomY}px`;
+});
+
+</script>
+
+</body>
+</html>
+    
